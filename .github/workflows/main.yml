@@ -1,21 +1,21 @@
 name: MAIN
 on: push
 env: |
-  NEXT_PUBLIC_CLOUDINARY_KEY= ${{ secrets.NEXT_PUBLIC_CLOUDINARY_KEY }}
-   NEXT_PUBLIC_CLOUD_NAME= ${{ secrets.NEXT_PUBLIC_CLOUD_NAME }}
-   NEXT_PUBLIC_PRESET= ${{ secrets.NEXT_PUBLIC_PRESET }}
+    NEXT_PUBLIC_CLOUDINARY_KEY= ${{ secrets.NEXT_PUBLIC_CLOUDINARY_KEY }}
+     NEXT_PUBLIC_CLOUD_NAME= ${{ secrets.NEXT_PUBLIC_CLOUD_NAME }}
+     NEXT_PUBLIC_PRESET= ${{ secrets.NEXT_PUBLIC_PRESET }}
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
-      - name: Install Dependencies
-        run: npm ci
-      - name: Check lint
-        run: npm run lint
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Cache Dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+            - name: Install Dependencies
+              run: npm ci
+            - name: Check lint
+              run: npm run lint
